@@ -17,7 +17,7 @@
 3. Nguyễn Tấn Tài
 #
 ## Tham khảo:
-[EvenBrite](https://www.eventbrite.com/)
-#
-[SkyExpoCenter](https://skyexpocenter.com.vn/)
+* [EvenBrite](https://www.eventbrite.com/)
+
+* [SkyExpoCenter](https://skyexpocenter.com.vn/)
 
