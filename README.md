@@ -2,7 +2,7 @@
 *WEB:*
 * Đặt vé online
 * Xem chi tiết sự kiện
-* Quản lý sự kiện
+* Đăng ký sự kiện
 #
 *APP:*
 * Quản lý sự kiện
