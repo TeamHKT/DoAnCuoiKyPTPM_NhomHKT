@@ -1,5 +1,6 @@
-# DoAnCuoiKyPTPM_NhomHKT
-Nhóm cuối kì phát triển phần mềm thông minh
+# Đề tài: Phần mềm đặt vé và quản lý sự kiện
+WEB:
+APP:
 
 ### Võ Anh Hào
 ### Nguyễn Văn Kỳ
