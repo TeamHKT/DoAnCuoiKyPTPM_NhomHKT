@@ -15,7 +15,7 @@
 1. Võ Anh Hào
 2. Nguyễn Văn Kỳ (Nhóm Trưởng)
 3. Nguyễn Tấn Tài
-***
+#
 ## Tham khảo:
 [EvenBrite](https://www.eventbrite.com/)
 #
