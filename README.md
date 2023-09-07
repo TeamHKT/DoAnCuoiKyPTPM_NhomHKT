@@ -2,7 +2,7 @@
 WEB:
 #
 APP:
-#
-### Võ Anh Hào
-### Nguyễn Văn Kỳ
-### Nguyễn Tấn Tài
+## Thành Viên:
+1. Võ Anh Hào
+2. Nguyễn Văn Kỳ (Nhóm Trưởng)
+3. Nguyễn Tấn Tài
