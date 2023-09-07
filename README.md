@@ -3,10 +3,12 @@
 * Đặt vé online
 * Xem chi tiết sự kiện
 * Quản lý sự kiện
+#
 *APP:*
 * Quản lý sự kiện
 * Đặt vé
 * Thống kê
+#
 *AI:*
 * Chatbot hỗ trợ khách hàng tư vấn đặt hàng
 ## Thành Viên:
