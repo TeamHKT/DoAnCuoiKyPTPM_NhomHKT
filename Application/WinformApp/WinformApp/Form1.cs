@@ -12,6 +12,7 @@ namespace WinformApp
 {
     public partial class Form1 : Form
     {
+        private Form currentChildForm;
         public Form1()
         {
             InitializeComponent();
@@ -27,86 +28,11 @@ namespace WinformApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblQLV.Hide();
-            lblQLND.Hide();
+  
 
         }
 
-        private void btnQuanLySuKien_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnQuanLySuKien.Checked == true)
-            {
-                lblQLSK.Show();
-                txtMaSK.Visible = true;
-                lblMaSK.Visible = true;
-                lblTenSK.Visible = true;
-                txtTenSK.Visible = true;
-                lblMaVe.Visible = false;
-                txtMaVe.Visible = false;
-                lblMaKH.Visible = false;
-                txtMaKH.Visible = false;
-                lblTenKH.Visible = false;
-                txtTenKH.Visible = false;
-
-            }
-            else
-            {
-                lblQLSK.Hide();
-                lblTenSK.Visible = false;
-                txtTenSK.Visible = false;    
-            }
-
-        }
-
-        private void btnQuanLyVe_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnQuanLyVe.Checked == true)
-            {
-                txtMaSK.Visible = true;
-                lblMaSK.Visible = true;
-                lblQLV.Show();
-                lblMaVe.Visible = true;
-                txtMaVe.Visible = true;
-                lblTenSK.Visible = false;
-                txtTenSK.Visible = false;
-                lblMaKH.Visible = false;
-                txtMaKH.Visible = false;
-                lblTenKH.Visible = false;
-                txtTenKH.Visible = false;
-
-            }
-            else 
-            {
-             lblQLV.Hide();
-             txtMaSK.Visible = false;
-             lblMaSK.Visible = false;
-             lblMaVe.Visible = false;
-             txtMaVe.Visible = false;
-             txtMaSK.Visible = false;     
-
-            }
-
-        }
-
-        private void btnQuanLyNguoiDung_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnQuanLyNguoiDung.Checked == true)
-            {
-                lblQLND.Show();
-                lblMaKH.Visible = true;
-                txtMaKH.Visible = true;
-                lblTenKH.Visible = true;
-                txtTenKH.Visible = true;
-            }
-            else { 
-                lblQLND.Hide();
-                lblMaKH.Visible = false;
-                txtMaKH.Visible = false;
-                lblTenKH.Visible= false;
-                txtTenKH.Visible=false;
-            }
-
-        }
+            
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -119,6 +45,95 @@ namespace WinformApp
             }
         }
 
+        private void btnQuanLySuKien_Click(object sender, EventArgs e)
+        {
+            lblTieuDe.Text = "Quản lý sự kiện";
+            OpenChildForm(new QuanLySuKien());
+            guna2Button1.Visible = false;
+            guna2Button2.Visible = false;
+            guna2Button3.Visible = false;
+        }
+
+        private void btnQuanLyVe_Click(object sender, EventArgs e)
+        {
+            lblTieuDe.Text = "Quản lý vé";
+            OpenChildForm(new QuanLyVe());
+            guna2Button1.Visible = false;
+            guna2Button2.Visible = false;
+            guna2Button3.Visible = false;
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            guna2Button1.Visible = true;
+            guna2Button2.Visible = true;
+            guna2Button3.Visible = true;
+            lblTieuDe.Text = null;
+            CloseChildForm();
+        }
+
+        private void btnQuanLyNguoiDung_Click(object sender, EventArgs e)
+        {
+            lblTieuDe.Text = "Quản lý Người Dùng";
+            guna2Button1.Visible = false;
+            OpenChildForm(new QuanLyNguoiDung());
+            guna2Button2.Visible = false;
+            guna2Button3.Visible = false;
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            lblTieuDe.Text = "Quản lý sự kiện";
+            OpenChildForm(new QuanLySuKien());
+            guna2Button1.Visible = false;
+            guna2Button2.Visible = false;
+            guna2Button3.Visible = false;
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            lblTieuDe.Text = "Quản lý Vé";
+            OpenChildForm(new QuanLyVe());
+            guna2Button1.Visible = false;
+            guna2Button2.Visible = false;
+            guna2Button3.Visible = false;
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            lblTieuDe.Text = "Quản lý người dùng";
+            guna2Button1.Visible = false;
+            guna2Button2.Visible = false;
+            guna2Button3.Visible = false;
+            OpenChildForm(new QuanLyNguoiDung());
+
+        }
+        private void OpenChildForm(Form childform)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childform;
+            childform.TopLevel = false;
+            childform.FormBorderStyle = FormBorderStyle.None;
+            childform.Dock = DockStyle.Fill;
+            childform.Size = new Size(guna2Panel2.Size.Width, guna2Panel2.Size.Height);
+            guna2Panel2.Controls.Add(childform);
+            guna2Panel2.Tag = childform;
+            childform.BringToFront();
+            childform.Show();
+        }
+        private void CloseChildForm()
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+                currentChildForm = null; // Đặt currentChildForm thành null để không có form con nào được theo dõi.
+            }
+        }
 
     }
+
 }
