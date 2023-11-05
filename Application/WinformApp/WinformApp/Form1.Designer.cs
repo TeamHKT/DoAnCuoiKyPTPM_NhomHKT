@@ -102,9 +102,9 @@
             this.btnQuanLyNguoiDung.ForeColor = System.Drawing.Color.White;
             this.btnQuanLyNguoiDung.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyNguoiDung.Image")));
             this.btnQuanLyNguoiDung.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnQuanLyNguoiDung.Location = new System.Drawing.Point(3, 391);
+            this.btnQuanLyNguoiDung.Location = new System.Drawing.Point(0, 391);
             this.btnQuanLyNguoiDung.Name = "btnQuanLyNguoiDung";
-            this.btnQuanLyNguoiDung.Size = new System.Drawing.Size(197, 52);
+            this.btnQuanLyNguoiDung.Size = new System.Drawing.Size(200, 52);
             this.btnQuanLyNguoiDung.TabIndex = 2;
             this.btnQuanLyNguoiDung.Text = "Quản Lý Người Dùng";
             this.btnQuanLyNguoiDung.Click += new System.EventHandler(this.btnQuanLyNguoiDung_Click);
@@ -172,9 +172,9 @@
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button3.Location = new System.Drawing.Point(734, 192);
+            this.guna2Button3.Location = new System.Drawing.Point(727, 100);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(197, 179);
+            this.guna2Button3.Size = new System.Drawing.Size(227, 147);
             this.guna2Button3.TabIndex = 9;
             this.guna2Button3.Text = "Quản Lý Người Dùng";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
@@ -192,9 +192,9 @@
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button2.Location = new System.Drawing.Point(435, 192);
+            this.guna2Button2.Location = new System.Drawing.Point(428, 100);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(200, 179);
+            this.guna2Button2.Size = new System.Drawing.Size(230, 147);
             this.guna2Button2.TabIndex = 9;
             this.guna2Button2.Text = "Quản Lý Vé";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -210,9 +210,9 @@
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(135, 192);
+            this.guna2Button1.Location = new System.Drawing.Point(120, 100);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(200, 179);
+            this.guna2Button1.Size = new System.Drawing.Size(230, 147);
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = "Quản Lý Sự Kiện";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
