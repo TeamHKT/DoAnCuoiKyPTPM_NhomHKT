@@ -52,43 +52,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DangNhap.cs">
+    <Compile Include="Forms\ChiTietSuKien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DangNhap.Designer.cs">
+    <Compile Include="Forms\ChiTietSuKien.Designer.cs">
+      <DependentUpon>ChiTietSuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyNguoiDung.cs">
+    <Compile Include="Forms\QuanLyNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyNguoiDung.Designer.cs">
+    <Compile Include="Forms\QuanLyNguoiDung.Designer.cs">
       <DependentUpon>QuanLyNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLySuKien.cs">
+    <Compile Include="Forms\QuanLySuKien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLySuKien.Designer.cs">
+    <Compile Include="Forms\QuanLySuKien.Designer.cs">
       <DependentUpon>QuanLySuKien.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyVe.cs">
+    <Compile Include="Forms\QuanLyVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyVe.Designer.cs">
+    <Compile Include="Forms\QuanLyVe.Designer.cs">
       <DependentUpon>QuanLyVe.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DangNhap.resx">
+    <EmbeddedResource Include="Forms\ChiTietSuKien.resx">
+      <DependentUpon>ChiTietSuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,13 +108,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QuanLyNguoiDung.resx">
+    <EmbeddedResource Include="Forms\QuanLyNguoiDung.resx">
       <DependentUpon>QuanLyNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLySuKien.resx">
+    <EmbeddedResource Include="Forms\QuanLySuKien.resx">
       <DependentUpon>QuanLySuKien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLyVe.resx">
+    <EmbeddedResource Include="Forms\QuanLyVe.resx">
       <DependentUpon>QuanLyVe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -124,6 +133,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\BLL.csproj">
+      <Project>{793b3164-8f57-483f-ae6f-86062a093ef9}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomControls\CustomControls.csproj">
+      <Project>{483cb948-f3f9-41c7-a559-604eeac3431c}</Project>
+      <Name>CustomControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{5d2f4520-8b17-4255-a4a6-4995e0a120d8}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,7 +28,7 @@ namespace WinformApp
             string password = txtPassword.Text;
             if (username == "admin" && password == "123")
             {
-                Form1 frm = new Form1();
+                DashBoard frm = new DashBoard();
                 frm.ShowDialog();
                 this.Hide();
 
