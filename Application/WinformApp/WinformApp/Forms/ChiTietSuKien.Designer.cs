@@ -33,7 +33,7 @@
 			this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
 			this.lb_SuKien = new System.Windows.Forms.Label();
 			this.lb_DiaDiem = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.lb_soVe = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_ChiTiet)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -59,6 +59,7 @@
 			this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
 			this.guna2ImageButton2.Size = new System.Drawing.Size(37, 35);
 			this.guna2ImageButton2.TabIndex = 8;
+			this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
 			// 
 			// lb_SuKien
 			// 
@@ -80,28 +81,29 @@
 			this.lb_DiaDiem.TabIndex = 10;
 			this.lb_DiaDiem.Text = "Địa điểm: ";
 			// 
-			// label1
+			// lb_soVe
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(210, 387);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(81, 24);
-			this.label1.TabIndex = 11;
-			this.label1.Text = "Số vé:  ";
+			this.lb_soVe.AutoSize = true;
+			this.lb_soVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lb_soVe.Location = new System.Drawing.Point(210, 387);
+			this.lb_soVe.Name = "lb_soVe";
+			this.lb_soVe.Size = new System.Drawing.Size(81, 24);
+			this.lb_soVe.TabIndex = 11;
+			this.lb_soVe.Text = "Số vé:  ";
 			// 
 			// ChiTietSuKien
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.lb_soVe);
 			this.Controls.Add(this.lb_DiaDiem);
 			this.Controls.Add(this.lb_SuKien);
 			this.Controls.Add(this.guna2ImageButton2);
 			this.Controls.Add(this.pictureBox_ChiTiet);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "ChiTietSuKien";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ChiTietSuKien";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_ChiTiet)).EndInit();
 			this.ResumeLayout(false);
@@ -115,6 +117,6 @@
 		private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
 		private System.Windows.Forms.Label lb_SuKien;
 		private System.Windows.Forms.Label lb_DiaDiem;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lb_soVe;
 	}
 }
