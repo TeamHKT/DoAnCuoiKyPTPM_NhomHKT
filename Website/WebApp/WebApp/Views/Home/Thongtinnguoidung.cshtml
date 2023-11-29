@@ -1,0 +1,48 @@
+﻿@model WebApp.Models.NguoiDung
+@{
+    ViewBag.Title = "Thong tin nguoi dung";
+}
+
+
+<h2>Thông Tin Người Dùng</h2>
+
+@if (Model != null)
+{
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Thuộc tính</th>
+                <th>Thông tin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ID</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Tên Đăng Nhập</td>
+                <td>@Model.TenNguoiDung</td>
+            </tr>
+            <tr>
+                <td>Họ và Tên</td>
+                <td>@Model.HoTen</td>
+            </tr>
+            <tr>
+                <td>Quyền</td>
+                <td>@Model.Quyen</td>
+            </tr>
+            <tr>
+                <td>Giới Tính</td>
+                <td>@Model.GioiTinh</td>
+            </tr>
+            <!-- Thêm các dòng khác nếu cần -->
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>Không có thông tin người dùng.</p>
+}
+<h2>Lịch sử đặt vé</h2>
