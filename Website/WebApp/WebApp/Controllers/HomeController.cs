@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using WebApp.Models;
 
 namespace WebApp.Controllers
 {
-	public class HomeController : Controller
-	{
+    public class HomeController : Controller
+    {
         private QuanLySuKienEntities db = new QuanLySuKienEntities(); // Tên của bạn có thể khác
 
         public ActionResult Index()
@@ -18,17 +15,17 @@ namespace WebApp.Controllers
         }
 
         public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
+        {
+            ViewBag.Message = "Your application description page.";
 
-			return View();
-		}
+            return View();
+        }
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
 
-			return View();
-		}
-	}
+            return View();
+        }
+    }
 }
