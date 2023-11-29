@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ChinhSuaSuKien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChinhSuaSuKien.Designer.cs">
+      <DependentUpon>ChinhSuaSuKien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChiTietSuKien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,18 @@
     </Compile>
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ThemSuKien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThemSuKien.Designer.cs">
+      <DependentUpon>ThemSuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ThemVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThemVe.Designer.cs">
+      <DependentUpon>ThemVe.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +108,9 @@
     <Compile Include="Forms\QuanLyVe.Designer.cs">
       <DependentUpon>QuanLyVe.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\ChinhSuaSuKien.resx">
+      <DependentUpon>ChinhSuaSuKien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChiTietSuKien.resx">
       <DependentUpon>ChiTietSuKien.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThemSuKien.resx">
+      <DependentUpon>ThemSuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThemVe.resx">
+      <DependentUpon>ThemVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,8 +162,8 @@
     <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\BLL.csproj">
-      <Project>{793b3164-8f57-483f-ae6f-86062a093ef9}</Project>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{210ab813-2836-4dda-95f9-67afdc3aacb4}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\CustomControls\CustomControls.csproj">

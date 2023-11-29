@@ -59,6 +59,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Dtos\SuKien.cs" />
+    <Compile Include="SuKienDataset.cs">
+      <DependentUpon>SuKienDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SuKienDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

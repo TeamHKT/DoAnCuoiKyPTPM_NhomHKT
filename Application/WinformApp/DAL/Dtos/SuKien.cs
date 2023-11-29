@@ -14,6 +14,7 @@ namespace DAL
 		public string DiaDiem { get; set; }
 		public string HinhAnh { get; set; }
 		public int SoLuongVe { get; set; }
+		public DateTime NgayToChuc { get; set; }
 
 		public SuKien(SuKienRow suKien)
 		{
@@ -22,6 +23,7 @@ namespace DAL
 			DiaDiem = suKien.DiaDiem;
 			HinhAnh = suKien.HinhAnh;
 			SoLuongVe = suKien.SoLuongVe;
+			NgayToChuc = suKien.NgayToChuc;
 		}
 	}
 }
