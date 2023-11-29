@@ -34,6 +34,9 @@
 			this.lb_SuKien = new System.Windows.Forms.Label();
 			this.lb_DiaDiem = new System.Windows.Forms.Label();
 			this.lb_soVe = new System.Windows.Forms.Label();
+			this.lb_ngayDienRa = new System.Windows.Forms.Label();
+			this.btn_XoaSuKien = new Guna.UI2.WinForms.Guna2Button();
+			this.btn_ThemVe = new Guna.UI2.WinForms.Guna2Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_ChiTiet)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -85,17 +88,62 @@
 			// 
 			this.lb_soVe.AutoSize = true;
 			this.lb_soVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lb_soVe.Location = new System.Drawing.Point(210, 387);
+			this.lb_soVe.Location = new System.Drawing.Point(210, 382);
 			this.lb_soVe.Name = "lb_soVe";
-			this.lb_soVe.Size = new System.Drawing.Size(81, 24);
+			this.lb_soVe.Size = new System.Drawing.Size(149, 24);
 			this.lb_soVe.TabIndex = 11;
-			this.lb_soVe.Text = "Số vé:  ";
+			this.lb_soVe.Text = "Số vé còn lại:  ";
+			// 
+			// lb_ngayDienRa
+			// 
+			this.lb_ngayDienRa.AutoSize = true;
+			this.lb_ngayDienRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lb_ngayDienRa.Location = new System.Drawing.Point(210, 423);
+			this.lb_ngayDienRa.Name = "lb_ngayDienRa";
+			this.lb_ngayDienRa.Size = new System.Drawing.Size(141, 24);
+			this.lb_ngayDienRa.TabIndex = 12;
+			this.lb_ngayDienRa.Text = "Ngày diễn ra: ";
+			// 
+			// btn_XoaSuKien
+			// 
+			this.btn_XoaSuKien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btn_XoaSuKien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btn_XoaSuKien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btn_XoaSuKien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btn_XoaSuKien.FillColor = System.Drawing.Color.Red;
+			this.btn_XoaSuKien.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_XoaSuKien.ForeColor = System.Drawing.Color.White;
+			this.btn_XoaSuKien.Location = new System.Drawing.Point(441, 467);
+			this.btn_XoaSuKien.Name = "btn_XoaSuKien";
+			this.btn_XoaSuKien.Size = new System.Drawing.Size(165, 49);
+			this.btn_XoaSuKien.TabIndex = 13;
+			this.btn_XoaSuKien.Text = "Xóa sự kiện này";
+			this.btn_XoaSuKien.Click += new System.EventHandler(this.btn_XoaSuKien_Click);
+			// 
+			// btn_ThemVe
+			// 
+			this.btn_ThemVe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btn_ThemVe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btn_ThemVe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btn_ThemVe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btn_ThemVe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(115)))), ((int)(((byte)(65)))));
+			this.btn_ThemVe.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_ThemVe.ForeColor = System.Drawing.Color.White;
+			this.btn_ThemVe.Location = new System.Drawing.Point(214, 467);
+			this.btn_ThemVe.Name = "btn_ThemVe";
+			this.btn_ThemVe.Size = new System.Drawing.Size(179, 49);
+			this.btn_ThemVe.TabIndex = 14;
+			this.btn_ThemVe.Text = "Thêm vé";
+			this.btn_ThemVe.Click += new System.EventHandler(this.btn_ThemVe_Click);
 			// 
 			// ChiTietSuKien
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(800, 545);
+			this.Controls.Add(this.btn_ThemVe);
+			this.Controls.Add(this.btn_XoaSuKien);
+			this.Controls.Add(this.lb_ngayDienRa);
 			this.Controls.Add(this.lb_soVe);
 			this.Controls.Add(this.lb_DiaDiem);
 			this.Controls.Add(this.lb_SuKien);
@@ -118,5 +166,8 @@
 		private System.Windows.Forms.Label lb_SuKien;
 		private System.Windows.Forms.Label lb_DiaDiem;
 		private System.Windows.Forms.Label lb_soVe;
+		private System.Windows.Forms.Label lb_ngayDienRa;
+		private Guna.UI2.WinForms.Guna2Button btn_XoaSuKien;
+		private Guna.UI2.WinForms.Guna2Button btn_ThemVe;
 	}
 }

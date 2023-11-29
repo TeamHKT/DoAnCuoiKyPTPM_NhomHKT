@@ -49,7 +49,7 @@ namespace CustomControls
 			Right.Size = new Size(109, 30);
 			Right.FlatStyle = FlatStyle.Flat;
 			Right.ForeColor = Color.FromArgb(60, 35, 23);
-			Right.Text = "Mua vé";
+			Right.Text = "Cập nhật";
 			Right.Cursor = Cursors.Hand;
 			Right.Tag = id;
 			//PICTURE
