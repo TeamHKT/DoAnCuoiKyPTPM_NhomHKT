@@ -3,7 +3,6 @@
     ViewBag.Title = "Home Page";
 }
 
-
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
         <h1 id="title">HKT</h1>
@@ -18,12 +17,89 @@
                             <h5 class="card-title">@item.TenSuKien</h5>
                             <p class="card-text">@item.DiaDiem</p>
                             <h5 class="card-title">@item.SoLuongVe</h5>
-                            <a href="#" class="btn btn-primary">Mua</a>
+                            <a href="#" class="btn btn-primary btn-datve" onclick="showConfirmModal('@item.Id', '@item.TenSuKien', '@item.DiaDiem', '@item.SoLuongVe')">Đặt vé</a>
                         </div>
                     </div>
                 </div>
             }
         </div>
+
+        <div id="confirmForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmFormLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmFormLabel">Xác Nhận Đặt Vé</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="confirmForm" method="post" action="@Url.Action("ConfirmBooking", "Home")">
+                            <div class="form-group">
+                                <label for="confirmFormEventId">ID Sự Kiện:</label>
+                                <span id="confirmFormEventId" class="form-control-plaintext"></span>
+                                <input type="hidden" id="eventId" name="eventId" />
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmFormEventName">Tên Sự Kiện:</label>
+                                <span id="confirmFormEventName" class="form-control-plaintext"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmFormEventLocation">Địa Điểm:</label>
+                                <span id="confirmFormEventLocation" class="form-control-plaintext"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmFormEventQuantity">Số Lượng Vé:</label>
+                                <input type="text" id="confirmFormEventQuantity" name="confirmFormEventQuantity" readonly class="form-control" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function showConfirmModal(eventId, eventName, eventLocation, eventMaxQuantity) {
+                if (eventId !== null) {
+                    $("#confirmFormEventId").text(eventId);
+                    $("#confirmFormEventName").text(eventName);
+                    $("#confirmFormEventLocation").text(eventLocation);
+
+                    // Set max attribute for the quantity input
+                    $("#confirmFormEventQuantity").attr("max", eventMaxQuantity);
+
+                    // Set initial value for the quantity input
+                    $("#confirmFormEventQuantity").val(1);
+
+                    $("#eventId").val(eventId);
+                    $("#confirmForm").modal("show");
+                } else {
+                    // Hiển thị thông báo hoặc xử lý khác khi eventId là null
+                    alert("Lỗi: Không có ID sự kiện.");
+                }
+            }
+
+
+            function cancelBooking() {
+                $("#confirmForm").modal("hide");
+            }
+
+            // Validate quantity input on form submission
+            $("#confirmForm").submit(function (event) {
+                var quantity = parseInt($("#confirmFormEventQuantity").val());
+                var maxQuantity = parseInt($("#confirmFormEventQuantity").attr("max"));
+
+                if (isNaN(quantity) || quantity <= 0 || quantity > maxQuantity) {
+                    // Prevent form submission and show an error message
+                    event.preventDefault();
+                    alert("Số lượng vé không hợp lệ. Vui lòng kiểm tra lại.");
+                }
+            });
+        </script>
 
     </section>
 </main>

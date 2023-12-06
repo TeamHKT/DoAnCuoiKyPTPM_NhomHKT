@@ -16,6 +16,48 @@ namespace WebApp.Controllers
             var data = db.SuKiens.ToList();
             return View(data);
         }
+        [HttpPost]
+        public ActionResult ConfirmBookingModal(int id)
+        {
+            var suKien = db.SuKiens.Find(id);
+
+            if (suKien != null)
+            {
+                return PartialView("_ConfirmBookingModal", suKien);
+            }
+
+            return HttpNotFound();
+        }
+
+        // Action xác nhận đặt vé
+        [HttpPost]
+        public ActionResult ConfirmBooking(int? eventId, int confirmFormEventQuantity)
+        {
+            var suKien = db.SuKiens.Find(eventId);
+
+            if (suKien != null && suKien.SoLuongVe >= confirmFormEventQuantity)
+            {
+                // Trừ số lượng vé đã đặt từ số lượng vé hiện có
+                suKien.SoLuongVe -= confirmFormEventQuantity;
+
+                // Lưu thay đổi vào cơ sở dữ liệu
+                db.SaveChanges();
+
+                // Thực hiện các hành động khác sau khi đặt vé thành công
+
+                // Chuyển hướng hoặc hiển thị thông báo thành công
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Hiển thị thông báo không đủ số lượng vé
+                ViewBag.ErrorMessage = "Không đủ số lượng vé cho đặt.";
+
+                // Trở lại trang chủ hoặc trang trước đó
+                return RedirectToAction("Index");
+            }
+        }
+
 
         public ActionResult Thongtinnguoidung()
         {
