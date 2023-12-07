@@ -23,6 +23,7 @@ namespace WebApp.Models
         public int Id { get; set; }
         public Nullable<double> GiaVe { get; set; }
         public Nullable<int> idSuKien { get; set; }
+        public Nullable<int> TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietVe> ChiTietVes { get; set; }

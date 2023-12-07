@@ -15,9 +15,10 @@ namespace WebApp.Models
     public partial class ChiTietVe
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> NgayDat { get; set; }
         public Nullable<int> IdNguoiDung { get; set; }
         public Nullable<int> IdVe { get; set; }
+        public Nullable<System.DateTime> NgayMua { get; set; }
+        public Nullable<double> GiaVe { get; set; }
     
         public virtual NguoiDung NguoiDung { get; set; }
         public virtual Ve Ve { get; set; }

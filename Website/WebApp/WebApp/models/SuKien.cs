@@ -25,6 +25,7 @@ namespace WebApp.Models
         public string DiaDiem { get; set; }
         public Nullable<int> SoLuongVe { get; set; }
         public string HinhAnh { get; set; }
+        public Nullable<System.DateTime> NgayToChuc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ve> Ves { get; set; }

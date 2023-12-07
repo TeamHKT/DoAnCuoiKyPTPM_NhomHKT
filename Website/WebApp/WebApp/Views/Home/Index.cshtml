@@ -29,9 +29,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="confirmFormLabel">Xác Nhận Đặt Vé</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
                     <div class="modal-body">
                         <form id="confirmForm" method="post" action="@Url.Action("ConfirmBooking", "Home")">
@@ -54,7 +51,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">Xác Nhận</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+
                         </form>
                     </div>
 
@@ -63,43 +60,51 @@
         </div>
 
         <script>
-            function showConfirmModal(eventId, eventName, eventLocation, eventMaxQuantity) {
-                if (eventId !== null) {
-                    $("#confirmFormEventId").text(eventId);
-                    $("#confirmFormEventName").text(eventName);
-                    $("#confirmFormEventLocation").text(eventLocation);
-
-                    // Set max attribute for the quantity input
-                    $("#confirmFormEventQuantity").attr("max", eventMaxQuantity);
-
-                    // Set initial value for the quantity input
-                    $("#confirmFormEventQuantity").val(1);
-
-                    $("#eventId").val(eventId);
-                    $("#confirmForm").modal("show");
-                } else {
-                    // Hiển thị thông báo hoặc xử lý khác khi eventId là null
-                    alert("Lỗi: Không có ID sự kiện.");
+                function isUserLoggedIn() {
+                    // Kiểm tra xem Session có tồn tại không
+                    return "@Session["Username"]" !== "";
                 }
-            }
 
+                function showConfirmModal(eventId, eventName, eventLocation, eventMaxQuantity) {
+                    // Kiểm tra xem người dùng đã đăng nhập chưa
+                    if (isUserLoggedIn()) {
+                        $("#confirmFormEventId").text(eventId);
+                        $("#confirmFormEventName").text(eventName);
+                        $("#confirmFormEventLocation").text(eventLocation);
 
-            function cancelBooking() {
-                $("#confirmForm").modal("hide");
-            }
+                        // Set max attribute for the quantity input
+                        $("#confirmFormEventQuantity").attr("max", eventMaxQuantity);
 
-            // Validate quantity input on form submission
-            $("#confirmForm").submit(function (event) {
-                var quantity = parseInt($("#confirmFormEventQuantity").val());
-                var maxQuantity = parseInt($("#confirmFormEventQuantity").attr("max"));
+                        // Set initial value for the quantity input
+                        $("#confirmFormEventQuantity").val(1);
 
-                if (isNaN(quantity) || quantity <= 0 || quantity > maxQuantity) {
-                    // Prevent form submission and show an error message
-                    event.preventDefault();
-                    alert("Số lượng vé không hợp lệ. Vui lòng kiểm tra lại.");
+                        $("#eventId").val(eventId);
+                        $("#confirmForm").modal("show");
+                    } else {
+                        // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                        alert("Vui lòng đăng nhập trước khi đặt vé.");
+                        window.location.href = "/Home/Login";
+                    }
                 }
-            });
+
+                function cancelBooking() {
+                    $("#confirmForm").modal("hide");
+                }
+
+                // Validate quantity input on form submission
+                $("#confirmForm").submit(function (event) {
+                    var quantity = parseInt($("#confirmFormEventQuantity").val());
+                    var maxQuantity = parseInt($("#confirmFormEventQuantity").attr("max"));
+
+                    if (isNaN(quantity) || quantity <= 0 || quantity > maxQuantity) {
+                        // Prevent form submission and show an error message
+                        event.preventDefault();
+                        alert("Số lượng vé không hợp lệ. Vui lòng kiểm tra lại.");
+                    }
+                });
         </script>
+
+
 
     </section>
 </main>

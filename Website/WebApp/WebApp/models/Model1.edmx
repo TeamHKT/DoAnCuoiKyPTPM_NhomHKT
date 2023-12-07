@@ -4,15 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLySuKienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLySuKienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietVe">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NgayDat" Type="datetime" />
+          <Property Name="NgayMua" Type="datetime" />
           <Property Name="IdNguoiDung" Type="int" />
           <Property Name="IdVe" Type="int" />
+          <Property Name="GiaVe" Type="float" />
         </EntityType>
         <EntityType Name="NguoiDung">
           <Key>
@@ -35,6 +36,7 @@
           <Property Name="DiaDiem" Type="nvarchar" MaxLength="250" />
           <Property Name="SoLuongVe" Type="int" />
           <Property Name="HinhAnh" Type="nvarchar(max)" />
+          <Property Name="NgayToChuc" Type="datetime" />
         </EntityType>
         <EntityType Name="Ve">
           <Key>
@@ -43,6 +45,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GiaVe" Type="float" />
           <Property Name="idSuKien" Type="int" />
+          <Property Name="TrangThai" Type="int" />
         </EntityType>
         <Association Name="FK__ChiTietVe__IdNgu__3E52440B">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
@@ -98,8 +101,7 @@
             <End Role="Ve" EntitySet="Ve" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLySuKienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -108,11 +110,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NgayDat" Type="DateTime" Precision="3" />
           <Property Name="IdNguoiDung" Type="Int32" />
           <Property Name="IdVe" Type="Int32" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.FK__ChiTietVe__IdNgu__3E52440B" FromRole="ChiTietVe" ToRole="NguoiDung" />
           <NavigationProperty Name="Ve" Relationship="Self.FK__ChiTietVe__IdVe__3F466844" FromRole="ChiTietVe" ToRole="Ve" />
+          <Property Name="NgayMua" Type="DateTime" Precision="3" />
+          <Property Name="GiaVe" Type="Double" />
         </EntityType>
         <EntityType Name="NguoiDung">
           <Key>
@@ -137,6 +140,7 @@
           <Property Name="SoLuongVe" Type="Int32" />
           <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ves" Relationship="Self.FK__Ve__idSuKien__3B75D760" FromRole="SuKien" ToRole="Ve" />
+          <Property Name="NgayToChuc" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Ve">
           <Key>
@@ -147,6 +151,7 @@
           <Property Name="idSuKien" Type="Int32" />
           <NavigationProperty Name="ChiTietVes" Relationship="Self.FK__ChiTietVe__IdVe__3F466844" FromRole="Ve" ToRole="ChiTietVe" />
           <NavigationProperty Name="SuKien" Relationship="Self.FK__Ve__idSuKien__3B75D760" FromRole="Ve" ToRole="SuKien" />
+          <Property Name="TrangThai" Type="Int32" />
         </EntityType>
         <Association Name="FK__ChiTietVe__IdNgu__3E52440B">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
@@ -211,8 +216,9 @@
           <EntitySetMapping Name="ChiTietVes">
             <EntityTypeMapping TypeName="QuanLySuKienModel.ChiTietVe">
               <MappingFragment StoreEntitySet="ChiTietVe">
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="NgayMua" ColumnName="NgayMua" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
                 <ScalarProperty Name="IdNguoiDung" ColumnName="IdNguoiDung" />
                 <ScalarProperty Name="IdVe" ColumnName="IdVe" />
               </MappingFragment>
@@ -234,6 +240,7 @@
           <EntitySetMapping Name="SuKiens">
             <EntityTypeMapping TypeName="QuanLySuKienModel.SuKien">
               <MappingFragment StoreEntitySet="SuKien">
+                <ScalarProperty Name="NgayToChuc" ColumnName="NgayToChuc" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TenSuKien" ColumnName="TenSuKien" />
                 <ScalarProperty Name="DiaDiem" ColumnName="DiaDiem" />
@@ -245,6 +252,7 @@
           <EntitySetMapping Name="Ves">
             <EntityTypeMapping TypeName="QuanLySuKienModel.Ve">
               <MappingFragment StoreEntitySet="Ve">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
                 <ScalarProperty Name="idSuKien" ColumnName="idSuKien" />
